@@ -176,6 +176,7 @@ function App() {
           slots={slots}
           selectedSlot={selectedSlot}
           onReserve={handleReserve}
+          reflections={reflections}
         />
       </LayoutWrapper>
 
@@ -192,7 +193,7 @@ function App() {
 
       <AnimatePresence>
         {newBadge && (
-          <div className="fixed top-4 right-4 z-50 bg-[var(--accent-color)]/20 border border-[var(--accent-color)]/30 rounded-2xl p-4 backdrop-blur-lg animate-pulse">
+          <div className="fixed top-4 right-4 z-50 bg-[var(--accent-color)]/20 border border-[var(--accent-color)]/30 rounded-2xl p-4 backdrop-blur-lg">
             <div className="flex items-center gap-3">
               <span className="text-3xl">{newBadge.icon}</span>
               <div>

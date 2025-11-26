@@ -3,6 +3,7 @@
   "private": true,
   "version": "3.0.0",
   "type": "module",
+  "homepage": "https://Hemanth42d.github.io/gymslot",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

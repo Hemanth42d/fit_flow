@@ -15,47 +15,59 @@ function UserPanel({ selectedSlot, slots, onCancel, onOpenBreathing, streak, bad
       initial={{ x: -30, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="w-full lg:w-[30%] p-6 lg:p-8 flex flex-col gap-5 overflow-y-auto"
+      className={`
+        w-full lg:w-[30%] lg:min-w-[320px] lg:max-w-[400px]
+        p-4 sm:p-6 lg:p-8 
+        flex flex-col gap-4 sm:gap-5
+        overflow-y-auto
+        lg:h-screen lg:sticky lg:top-0
+      `}
     >
-      {/* Logo */}
-      <div className="flex items-center gap-3">
-        <div className={`
-          w-10 h-10 rounded-xl flex items-center justify-center
-          ${isDark ? 'bg-[var(--accent-color)]/10 border border-[var(--accent-color)]/20' : 'bg-cyan-100'}
-        `}>
-          <svg className="w-5 h-5 accent-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8h2m12 0h2M6 8v8m12-8v8M8 6h8a2 2 0 012 2v8a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2z" />
-          </svg>
+      {/* Logo - responsive sizing */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className={`
+            w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center
+            ${isDark ? 'bg-[var(--accent-color)]/10 border border-[var(--accent-color)]/20' : 'bg-cyan-100'}
+          `}>
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 accent-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8h2m12 0h2M6 8v8m12-8v8M8 6h8a2 2 0 012 2v8a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2z" />
+            </svg>
+          </div>
+          <div>
+            <h1 className={`text-lg sm:text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+              GymSlot
+            </h1>
+            <p className={`text-[10px] sm:text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+              Smart Workout Planner
+            </p>
+          </div>
         </div>
-        <div>
-          <h1 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            GymSlot
-          </h1>
-          <p className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
-            Smart Workout Planner
-          </p>
+        {/* Theme toggle visible on mobile header */}
+        <div className="lg:hidden">
+          <ThemeToggle />
         </div>
       </div>
 
-      {/* User Card */}
+      {/* User Card - responsive padding */}
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.1, duration: 0.4 }}
-        className={`rounded-2xl p-5 ${isDark ? 'glass-dark' : 'glass-light shadow-lg'}`}
+        className={`rounded-2xl p-4 sm:p-5 ${isDark ? 'glass-dark' : 'glass-light shadow-lg'}`}
       >
-        <div className="flex items-center gap-4 mb-4">
+        <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
           <div className={`
-            w-12 h-12 rounded-xl flex items-center justify-center text-xl
+            w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-lg sm:text-xl
             ${isDark ? 'bg-matte-card border border-matte-border' : 'bg-gray-100'}
           `}>
             👤
           </div>
-          <div className="flex-1">
-            <h2 className={`font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>
+          <div className="flex-1 min-w-0">
+            <h2 className={`font-medium text-sm sm:text-base truncate ${isDark ? 'text-white' : 'text-gray-900'}`}>
               Gym Member
             </h2>
-            <p className={`text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+            <p className={`text-xs sm:text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
               Premium Access
             </p>
           </div>
@@ -63,27 +75,27 @@ function UserPanel({ selectedSlot, slots, onCancel, onOpenBreathing, streak, bad
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="px-2 py-1 rounded-lg flex items-center gap-1 bg-amber-500/10 border border-amber-500/20"
+              className="px-2 py-1 rounded-lg flex items-center gap-1 bg-amber-500/10 border border-amber-500/20 flex-shrink-0"
             >
-              <span>🔥</span>
-              <span className="text-sm font-medium text-amber-500">{streak}</span>
+              <span className="text-sm">🔥</span>
+              <span className="text-xs sm:text-sm font-medium text-amber-500">{streak}</span>
             </motion.div>
           )}
         </div>
 
-        {/* Stats */}
-        <div className={`flex gap-4 py-3 border-y mb-4 ${isDark ? 'border-white/5' : 'border-gray-200'}`}>
-          <div className="flex-1 text-center">
-            <p className="text-lg font-semibold accent-text">{bookingCount}</p>
-            <p className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>Bookings</p>
+        {/* Stats - responsive grid */}
+        <div className={`grid grid-cols-3 gap-2 sm:gap-4 py-3 border-y mb-3 sm:mb-4 ${isDark ? 'border-white/5' : 'border-gray-200'}`}>
+          <div className="text-center">
+            <p className="text-base sm:text-lg font-semibold accent-text">{bookingCount}</p>
+            <p className={`text-[10px] sm:text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>Bookings</p>
           </div>
-          <div className="flex-1 text-center">
-            <p className="text-lg font-semibold accent-text">{streak}</p>
-            <p className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>Streak</p>
+          <div className="text-center">
+            <p className="text-base sm:text-lg font-semibold accent-text">{streak}</p>
+            <p className={`text-[10px] sm:text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>Streak</p>
           </div>
-          <div className="flex-1 text-center">
-            <p className="text-lg font-semibold accent-text">{badges.length}</p>
-            <p className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>Badges</p>
+          <div className="text-center">
+            <p className="text-base sm:text-lg font-semibold accent-text">{badges.length}</p>
+            <p className={`text-[10px] sm:text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>Badges</p>
           </div>
         </div>
 
@@ -91,23 +103,25 @@ function UserPanel({ selectedSlot, slots, onCancel, onOpenBreathing, streak, bad
         <BadgeSystem unlockedBadges={badges} />
       </motion.div>
 
-      {/* Quote */}
-      <QuoteDisplay />
+      {/* Quote - hide on very small screens */}
+      <div className="hidden sm:block">
+        <QuoteDisplay />
+      </div>
 
       {/* Recent Moods */}
       {recentMoods.length > 0 && (
-        <div className={`rounded-xl p-4 ${isDark ? 'bg-matte-card/50' : 'bg-gray-100'}`}>
-          <p className={`text-xs font-medium mb-2 ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+        <div className={`rounded-xl p-3 sm:p-4 ${isDark ? 'bg-matte-card/50' : 'bg-gray-100'}`}>
+          <p className={`text-[10px] sm:text-xs font-medium mb-2 ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
             Recent Moods
           </p>
-          <div className="flex gap-2">
+          <div className="flex gap-1.5 sm:gap-2">
             {recentMoods.map((r, i) => (
               <motion.span
                 key={i}
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: i * 0.05 }}
-                className="text-lg"
+                className="text-base sm:text-lg"
               >
                 {r.mood === 'great' ? '😀' : r.mood === 'okay' ? '😐' : '😔'}
               </motion.span>
@@ -122,7 +136,7 @@ function UserPanel({ selectedSlot, slots, onCancel, onOpenBreathing, streak, bad
         whileTap={{ scale: 0.98 }}
         onClick={onOpenBreathing}
         className={`
-          w-full py-3 rounded-xl flex items-center justify-center gap-2 transition-colors
+          w-full py-2.5 sm:py-3 rounded-xl flex items-center justify-center gap-2 transition-colors text-sm
           ${isDark 
             ? 'bg-[var(--accent-color)]/10 border border-[var(--accent-color)]/20 accent-text hover:bg-[var(--accent-color)]/20' 
             : 'bg-cyan-100 text-cyan-700 hover:bg-cyan-200'
@@ -130,11 +144,11 @@ function UserPanel({ selectedSlot, slots, onCancel, onOpenBreathing, streak, bad
         `}
       >
         <span>🧘</span>
-        <span className="text-sm font-medium">Warm-Up Breathing</span>
+        <span className="font-medium">Warm-Up Breathing</span>
       </motion.button>
 
-      {/* Settings: Theme & Accent */}
-      <div className={`rounded-xl p-4 space-y-4 ${isDark ? 'bg-matte-card/30' : 'bg-gray-50'}`}>
+      {/* Settings - hidden on mobile, shown on desktop */}
+      <div className={`hidden lg:block rounded-xl p-4 space-y-4 ${isDark ? 'bg-matte-card/30' : 'bg-gray-50'}`}>
         <div className="flex items-center justify-between">
           <span className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>Theme</span>
           <ThemeToggle />
@@ -148,7 +162,7 @@ function UserPanel({ selectedSlot, slots, onCancel, onOpenBreathing, streak, bad
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           className={`
-            rounded-2xl p-5 border
+            rounded-2xl p-4 sm:p-5 border
             ${isDark ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-green-50 border-green-200'}
           `}
         >
@@ -158,13 +172,13 @@ function UserPanel({ selectedSlot, slots, onCancel, onOpenBreathing, streak, bad
               Reserved
             </span>
           </div>
-          <p className={`font-semibold mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+          <p className={`font-semibold text-sm sm:text-base mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             {selected.startTime} – {selected.endTime}
           </p>
           <button
             onClick={onCancel}
             className={`
-              w-full py-2 rounded-xl text-sm font-medium transition-colors
+              w-full py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors
               ${isDark ? 'bg-matte-card hover:bg-matte-dark text-gray-400' : 'bg-gray-200 hover:bg-gray-300 text-gray-700'}
             `}
           >

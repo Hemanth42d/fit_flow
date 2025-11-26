@@ -14,6 +14,7 @@ function LayoutWrapper({ children }) {
         ${isDark ? 'bg-matte-black text-white' : 'bg-light-bg text-gray-900'}
       `}
     >
+      {/* Responsive: stack on mobile, side-by-side on lg+ */}
       <div className="min-h-screen flex flex-col lg:flex-row">
         {children}
       </div>

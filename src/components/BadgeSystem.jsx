@@ -13,11 +13,11 @@ function BadgeSystem({ unlockedBadges = [] }) {
   const { isDark } = useTheme()
 
   return (
-    <div className="space-y-3">
-      <p className={`text-xs font-medium ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+    <div className="space-y-2 sm:space-y-3">
+      <p className={`text-[10px] sm:text-xs font-medium ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
         Achievements
       </p>
-      <div className="grid grid-cols-5 gap-2">
+      <div className="grid grid-cols-5 gap-1.5 sm:gap-2">
         {allBadges.map((badge, i) => {
           const isUnlocked = unlockedBadges.includes(badge.id)
           return (
@@ -28,7 +28,7 @@ function BadgeSystem({ unlockedBadges = [] }) {
               transition={{ delay: i * 0.05 }}
               whileHover={{ scale: 1.15 }}
               className={`
-                relative group flex flex-col items-center p-2 rounded-xl transition-all cursor-pointer
+                relative group flex flex-col items-center p-1.5 sm:p-2 rounded-lg sm:rounded-xl transition-all cursor-pointer
                 ${isUnlocked 
                   ? 'bg-[var(--accent-color)]/10 border border-[var(--accent-color)]/30' 
                   : isDark 
@@ -37,13 +37,13 @@ function BadgeSystem({ unlockedBadges = [] }) {
                 }
               `}
             >
-              <span className={`text-xl ${isUnlocked ? '' : 'grayscale'}`}>
+              <span className={`text-base sm:text-xl ${isUnlocked ? '' : 'grayscale'}`}>
                 {badge.icon}
               </span>
               
-              {/* Tooltip */}
+              {/* Tooltip - hidden on mobile */}
               <div className={`
-                absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 rounded-lg
+                hidden sm:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 rounded-lg
                 text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity
                 pointer-events-none z-20 text-center
                 ${isDark ? 'bg-matte-dark border border-matte-border text-white' : 'bg-gray-800 text-white'}
@@ -57,7 +57,7 @@ function BadgeSystem({ unlockedBadges = [] }) {
                 <motion.div
                   animate={{ opacity: [0.2, 0.4, 0.2] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute inset-0 rounded-xl bg-[var(--accent-color)]/30 blur-md -z-10"
+                  className="absolute inset-0 rounded-lg sm:rounded-xl bg-[var(--accent-color)]/30 blur-md -z-10"
                 />
               )}
             </motion.div>

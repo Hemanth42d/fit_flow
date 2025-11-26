@@ -1,36 +1,18 @@
 # GymSlot – Smart Workout Planner
 
-A premium minimalistic SPA with gamification, breathing exercises, mood tracking, and smart insights.
+A premium single-page application that helps gym members avoid overcrowded workout times through visual slot booking.
 
 ## ✨ Features
 
-### Core
 - **Time Slot Booking** - 10 slots (5 morning + 5 evening)
-- **Occupancy Visualization** - Color-coded progress bars
-- **Dark/Light Mode** - Smooth animated toggle
-- **localStorage Persistence** - All data survives refresh
-
-### Gamification
-- **Achievement Badges** - Unlock badges based on behavior:
-  - ⭐ Getting Started (5 bookings)
-  - 🔥 Consistency King (7-day streak)
-  - ☀️ Early Bird (5 morning slots)
-  - 🏋️ Persistent (20 bookings)
-- **Streak Counter** - Track consecutive booking days
-- **Badge Unlock Animation** - Notification toast with glow
-
-### Wellness
-- **Breathing Exercise** - Fullscreen 4-4-4 breathing modal
-  - Animated expanding/contracting circle
-  - Phase indicators (Inhale → Hold → Exhale)
-- **Daily Motivational Quotes** - Rotates daily from local JSON
-- **Post-Workout Reflection** - Rate your workout (😀 😐 😔)
-- **Weekly Mood Graph** - Visual 7-day reflection history
-
-### Insights
-- **Today/History Toggle** - Switch between views
-- **7-Day Occupancy Heatmap** - Historical trend bars
-- **Recent Bookings List** - Quick history view
+- **Occupancy Visualization** - Color-coded progress bars (green/yellow/red)
+- **Dark/Light Theme** - Smooth animated toggle
+- **Accent Colors** - 5 customizable colors (Cyan, Emerald, Violet, Rose, Amber)
+- **Achievement Badges** - Gamification with unlock animations
+- **Breathing Exercise** - 4-4-4 guided breathing modal
+- **Mood Tracking** - Post-workout reflection
+- **Confetti Celebrations** - On streaks and badge unlocks
+- **Fully Responsive** - Mobile, tablet, and desktop
 
 ## 🚀 Quick Start
 
@@ -42,85 +24,85 @@ npm run dev
 
 Open http://localhost:5173
 
-## 📁 Structure
-
-```
-src/
-├── components/
-│   ├── LayoutWrapper.jsx     # Main layout
-│   ├── UserPanel.jsx         # Left sidebar (30%)
-│   ├── SlotCalendar.jsx      # Today view (70%)
-│   ├── SlotCard.jsx          # Individual slot
-│   ├── ThemeToggle.jsx       # Dark/light switch
-│   ├── BadgeSystem.jsx       # Achievement badges
-│   ├── QuoteDisplay.jsx      # Daily quote
-│   ├── BreathingModal.jsx    # Breathing exercise
-│   ├── ReflectionModal.jsx   # Post-workout mood
-│   ├── ReflectionGraph.jsx   # Weekly mood chart
-│   ├── ViewToggle.jsx        # Today/History switch
-│   └── HistoryView.jsx       # History panel
-├── context/
-│   └── ThemeContext.jsx
-├── data/
-│   └── quotes.js             # Motivational quotes
-├── App.jsx
-├── main.jsx
-└── index.css
-```
-
-## 🎨 Design
-
-| Element | Dark Mode | Light Mode |
-|---------|-----------|------------|
-| Background | #0c0c0d | #fafafa |
-| Cards | Glass blur + subtle border | White + shadow |
-| Accent | Cyan #22d3ee | Cyan-600 |
-
-## 🏆 Badge System
-
-Badges are unlocked automatically based on:
-- Total booking count
-- Morning slot preference
-- Consecutive day streaks
-
-## 🧘 Breathing Exercise
-
-4-second cycle:
-1. **Inhale** - Circle expands
-2. **Hold** - Pulse glow effect
-3. **Exhale** - Circle shrinks
-
 ## 🌐 GitHub Pages Deployment
 
-1. Update `vite.config.js`:
-   ```js
-   base: '/your-repo-name/',
-   ```
+### Step 1: Update Configuration
 
-2. Deploy:
-   ```bash
-   npm run deploy
-   ```
+Edit `vite.config.js` and change the base path to your repo name:
+```js
+base: '/your-repo-name/',
+```
 
-3. Enable Pages: Settings → Pages → Source: `gh-pages`
+Edit `package.json` and update the homepage:
+```json
+"homepage": "https://yourusername.github.io/your-repo-name"
+```
+
+### Step 2: Deploy
+
+```bash
+npm run deploy
+```
+
+### Step 3: Enable GitHub Pages
+
+1. Go to your repository on GitHub
+2. Navigate to **Settings** → **Pages**
+3. Under "Source", select **Deploy from a branch**
+4. Select branch: **gh-pages** / **root**
+5. Click **Save**
+
+Your app will be live at: `https://yourusername.github.io/your-repo-name/`
 
 ## 🛠️ Scripts
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Dev server |
-| `npm run build` | Production build |
-| `npm run deploy` | Deploy to GitHub Pages |
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run deploy` | Build and deploy to GitHub Pages |
 
-## 📱 localStorage Keys
+## 📁 Project Structure
 
-- `gymslot-slots` - Current slot data
-- `gymslot-selected` - Active reservation
-- `gymslot-history` - Booking history
-- `gymslot-reflections` - Mood data
-- `gymslot-badges` - Unlocked badges
-- `gymslot-theme` - Theme preference
+```
+gymslot/
+├── src/
+│   ├── components/
+│   │   ├── LayoutWrapper.jsx
+│   │   ├── UserPanel.jsx
+│   │   ├── SlotCalendar.jsx
+│   │   ├── SlotCard.jsx
+│   │   ├── ThemeToggle.jsx
+│   │   ├── AccentColorPicker.jsx
+│   │   ├── BadgeSystem.jsx
+│   │   ├── QuoteDisplay.jsx
+│   │   ├── BreathingModal.jsx
+│   │   ├── ReflectionModal.jsx
+│   │   ├── ReflectionGraph.jsx
+│   │   └── Confetti.jsx
+│   ├── context/
+│   │   └── ThemeContext.jsx
+│   ├── data/
+│   │   └── quotes.js
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── .kiro/                    # Kiro agent metadata
+├── index.html
+├── vite.config.js
+├── tailwind.config.js
+└── package.json
+```
+
+## 🎨 Tech Stack
+
+- React 18
+- Tailwind CSS
+- Framer Motion
+- Vite
+- localStorage (persistence)
 
 ---
 
-Built with React + Tailwind CSS + Framer Motion
+Built with Kiro AI Assistant
