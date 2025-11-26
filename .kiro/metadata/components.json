@@ -1,0 +1,109 @@
+{
+  "components": [
+    {
+      "name": "App",
+      "path": "src/App.jsx",
+      "type": "root",
+      "description": "Main application component with state management and modal orchestration",
+      "dependencies": ["ThemeProvider", "LayoutWrapper", "UserPanel", "SlotCalendar", "HistoryView", "BreathingModal", "ReflectionModal", "Confetti"]
+    },
+    {
+      "name": "LayoutWrapper",
+      "path": "src/components/LayoutWrapper.jsx",
+      "type": "layout",
+      "description": "Main layout container with theme-aware background"
+    },
+    {
+      "name": "UserPanel",
+      "path": "src/components/UserPanel.jsx",
+      "type": "panel",
+      "description": "Left sidebar (30%) with user info, badges, quotes, and settings"
+    },
+    {
+      "name": "SlotCalendar",
+      "path": "src/components/SlotCalendar.jsx",
+      "type": "panel",
+      "description": "Right panel (70%) with morning/evening slot grids"
+    },
+    {
+      "name": "SlotCard",
+      "path": "src/components/SlotCard.jsx",
+      "type": "card",
+      "description": "Individual time slot card with occupancy progress bar"
+    },
+    {
+      "name": "ThemeToggle",
+      "path": "src/components/ThemeToggle.jsx",
+      "type": "control",
+      "description": "Dark/light mode toggle switch"
+    },
+    {
+      "name": "AccentColorPicker",
+      "path": "src/components/AccentColorPicker.jsx",
+      "type": "control",
+      "description": "Accent color selection (cyan, emerald, violet, rose, amber)"
+    },
+    {
+      "name": "BadgeSystem",
+      "path": "src/components/BadgeSystem.jsx",
+      "type": "display",
+      "description": "Achievement badges grid with unlock animations"
+    },
+    {
+      "name": "QuoteDisplay",
+      "path": "src/components/QuoteDisplay.jsx",
+      "type": "display",
+      "description": "Daily motivational quote with fade animation"
+    },
+    {
+      "name": "BreathingModal",
+      "path": "src/components/BreathingModal.jsx",
+      "type": "modal",
+      "description": "Fullscreen 4-4-4 breathing exercise with animated circle"
+    },
+    {
+      "name": "ReflectionModal",
+      "path": "src/components/ReflectionModal.jsx",
+      "type": "modal",
+      "description": "Post-workout mood picker (great/okay/tough)"
+    },
+    {
+      "name": "ReflectionGraph",
+      "path": "src/components/ReflectionGraph.jsx",
+      "type": "display",
+      "description": "Weekly mood visualization chart"
+    },
+    {
+      "name": "HistoryView",
+      "path": "src/components/HistoryView.jsx",
+      "type": "panel",
+      "description": "7-day occupancy heatmap and booking history"
+    },
+    {
+      "name": "ViewToggle",
+      "path": "src/components/ViewToggle.jsx",
+      "type": "control",
+      "description": "Today/History view switcher"
+    },
+    {
+      "name": "Confetti",
+      "path": "src/components/Confetti.jsx",
+      "type": "effect",
+      "description": "Celebration confetti animation for achievements"
+    }
+  ],
+  "contexts": [
+    {
+      "name": "ThemeContext",
+      "path": "src/context/ThemeContext.jsx",
+      "description": "Global theme state (dark/light) and accent color management"
+    }
+  ],
+  "data": [
+    {
+      "name": "quotes",
+      "path": "src/data/quotes.js",
+      "description": "Motivational quotes array with daily rotation logic"
+    }
+  ]
+}
