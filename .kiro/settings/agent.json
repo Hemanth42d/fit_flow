@@ -1,0 +1,21 @@
+{
+  "agentVersion": "1.0.0",
+  "capabilities": [
+    "component-generation",
+    "code-refactoring",
+    "styling-assistance",
+    "animation-patterns"
+  ],
+  "preferences": {
+    "codeStyle": "functional",
+    "componentPattern": "arrow-function",
+    "exportStyle": "default",
+    "indentation": 2,
+    "quotes": "single"
+  },
+  "context": {
+    "primaryLanguage": "javascript",
+    "jsxEnabled": true,
+    "typeChecking": false
+  }
+}

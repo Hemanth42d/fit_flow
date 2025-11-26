@@ -1,0 +1,12 @@
+{
+  "name": "GymSlot – Smart Workout Planner",
+  "description": "A premium single-page application that helps gym members avoid overcrowded workout times through visual slot booking and occupancy tracking.",
+  "version": "3.0.0",
+  "type": "frontend",
+  "framework": "react",
+  "styling": "tailwindcss",
+  "animations": "framer-motion",
+  "deployment": "github-pages",
+  "createdAt": "2025-11-26T00:00:00.000Z",
+  "lastModified": "2025-11-26T00:00:00.000Z"
+}
