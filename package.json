@@ -3,7 +3,7 @@
   "private": true,
   "version": "3.0.0",
   "type": "module",
-  "homepage": "https://yourusername.github.io/fit_flow",
+  "homepage": "https://Hemanth42d.github.io/fit_flow",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
