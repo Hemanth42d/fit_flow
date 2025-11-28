@@ -36,7 +36,7 @@ function UserPanel({ selectedSlot, slots, onCancel, onOpenBreathing, streak, bad
           </div>
           <div>
             <h1 className={`text-lg sm:text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-              GymSlot
+              FitFlow
             </h1>
             <p className={`text-[10px] sm:text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
               Smart Workout Planner
